@@ -51,6 +51,15 @@ while True:
 	# predictions
 	net.setInput(blob)
 	detections = net.forward()
+
+	"""
+	detections is an array output. 
+	if you calculate its shape then it will give 4 elements 
+	e.g. (1,1,200,7).
+		- where 1,1 tell us number of images we are currently working on.
+		- 200 is the numbers of face detected which I have assumed above.
+		- whereas 7 is vector of 7 values [Image number, Binary (0 or 1), confidence score (0 to 1), StartX, StartY, EndX, EndY].
+	"""
 	# ensure at least one face was found
 	if len(detections) > 0:
 		# we're making the assumption that each image has only ONE
